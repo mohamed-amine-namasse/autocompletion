@@ -41,7 +41,7 @@ if (!empty($searchTerm)) {
     <?php if (empty($searchTerm)): ?>
         <p class="alert alert-warning">Veuillez entrer un terme de recherche.</p>
     <?php elseif (empty($results)): ?>
-        <p class="alert alert-info">Aucun résultat trouvé pour "<?php echo htmlspecialchars($searchTerm); ?>".</p>
+        <p class="alert alert-danger">Aucun résultat trouvé pour "<?php echo htmlspecialchars($searchTerm); ?>".</p>
     <?php else: ?>
         <p>Nous avons trouvé **<?php echo count($results); ?>** résultat(s) :</p>
 

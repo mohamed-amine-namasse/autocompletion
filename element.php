@@ -34,10 +34,10 @@ if ($elementId > 0) {
 
 <div class="container mt-5">
     <?php if ($element): ?>
-        <h1 class="mb-4"><?php echo htmlspecialchars($element['make']) . " " . htmlspecialchars($element['model']); ?></h1>
+        <h1 class="mb-4 text-center"><?php echo htmlspecialchars($element['make']) . " " . htmlspecialchars($element['model']); ?></h1>
 
-        <div class="row gx-5">
-            <div class="col-md-4 border border-success d-flex justify-content-center align-items-center ">
+        <div class="row ">
+            <div class="col-md-5 border border-success d-flex justify-content-center align-items-center ">
 
                 <p> Image indisponible</p>
 
@@ -48,7 +48,7 @@ if ($elementId > 0) {
             } else {
                 $available = "Non";
             } ?>
-            <div class="col-md-8 ">
+            <div class="col-md-5 offset-1   ">
                 <p class="lead text-dark fw-medium">
                     <?php echo "Model: " . htmlspecialchars($element['model']) . "<br>"; ?>
                     <?php echo "Année: " . htmlspecialchars($element['year']) . "<br>"; ?>
@@ -59,7 +59,7 @@ if ($elementId > 0) {
                 <hr>
 
                 <h3>Prix € :</h3>
-                <div class="card w-20 bg-light">
+                <div class="card bg-light">
                     <p>
                         <?php echo htmlspecialchars($element['price']); ?>
                     </p>
@@ -70,6 +70,7 @@ if ($elementId > 0) {
                 <a href="javascript:history.back()" class="btn btn-success mt-4">Retour aux résultats</a>
 
             </div>
+
         </div>
 
     <?php else: ?>
