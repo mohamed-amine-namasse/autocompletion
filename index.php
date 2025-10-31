@@ -23,7 +23,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,29 +32,28 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     <a class="nav-link" href="#">Features</a>
                     <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+
                 </div>
+
             </div>
+            <form class="d-flex" role="search">
+                <div class="input-group  ">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                    <input type="search" class="form-control me-2 p-2 ">
+                </div>
+                <button class="btn btn-outline-success" type="submit">Rechercher</button>
+            </form>
         </div>
     </nav>
 
-
-    <div class="container">
-        <div class="d-flex mt-5 justify-content-center">
+    <div class="container mt-5 ">
+        <h1 class="text-center">Bienvenue sur la page d'accueil</h1>
+        <div class="d-flex mt-5 mb-5 justify-content-center">
 
             <img src="./assets/images/browser-icon.jpg" alt="logo navigateur">
 
         </div>
-
-    </div>
-    <div class=" d-flex justify-content-center mt-4 ">
-        <form class="d-flex  w-50 " role="search">
-            <div class="input-group  ">
-                <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-                <input type="search" class="form-control me-2 p-2 ">
-            </div>
-            <button class="btn btn-success" type="submit">Search</button>
-        </form>
+        <p class="text-center fs-5"> Vous pouvez faire votre recherche </p>
     </div>
 
     <script
