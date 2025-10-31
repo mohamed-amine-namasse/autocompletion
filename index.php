@@ -8,7 +8,7 @@
         <img src="./assets/images/browser-icon.jpg" alt="logo navigateur">
 
     </div>
-    <p class="text-center fs-5"> Vous pouvez faire votre recherche! </p>
+    <p class="text-center fs-5"> Vous pouvez faire votre recherche de voiture sur notre moteur de recherche </p>
 </div>
 
 <script

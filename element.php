@@ -60,7 +60,7 @@ if ($elementId > 0) {
 
                 <h3>Prix € :</h3>
                 <div class="card bg-light text-center ">
-                    <p class=fw-bold>
+                    <p class="text-danger fw-bold">
                         <?php echo htmlspecialchars($element['price']); ?>
                     </p>
 
