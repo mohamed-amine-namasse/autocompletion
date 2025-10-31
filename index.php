@@ -47,7 +47,7 @@
         </div>
 
     </div>
-    <div class=" d-flex justify-content-center mt-4 border">
+    <div class=" d-flex justify-content-center mt-4 ">
         <form class="d-flex  w-50 " role="search">
             <div class="input-group shadow-sm ">
                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
