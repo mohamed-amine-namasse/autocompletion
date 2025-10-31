@@ -59,8 +59,8 @@ if ($elementId > 0) {
                 <hr>
 
                 <h3>Prix € :</h3>
-                <div class="card bg-light">
-                    <p>
+                <div class="card bg-light text-center ">
+                    <p class=fw-bold>
                         <?php echo htmlspecialchars($element['price']); ?>
                     </p>
 
