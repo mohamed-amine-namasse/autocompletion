@@ -6,34 +6,57 @@ require_once 'config.php';
 // Inclure le header (qui contient la barre de recherche)
 include 'header.php';
 
-// Récupérer le terme de recherche depuis l'URL (GET)
+
+
+
 $searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
-$results = []; // Initialiser le tableau de résultats
+$results = [];
 
 if (!empty($searchTerm)) {
-    // 1. Terme de recherche : Assurez la sécurité avec des requêtes préparées
-    // La recherche se fera sur une colonne 'nom' ou 'titre'
-    $searchPattern = '%' . $searchTerm . '%';
+    // Séparer le terme de recherche en mots individuels (par espace)
+    $searchWords = explode(' ', $searchTerm);
+    // Filtrer les mots vides ou très courts
+    $searchWords = array_filter($searchWords, function ($word) {
+        return strlen($word) > 1; // Optionnel : Ignorer les lettres uniques dans la recherche complète
+    });
 
-    // Exemple de requête SQL pour rechercher dans le nom et la description (ajustez les colonnes)
-    $sql = "SELECT id,make ,color
-            FROM cars 
-            WHERE make LIKE :search  
-            ORDER BY make ASC";
+    if (!empty($searchWords)) {
 
-    try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['search' => $searchPattern]);
+        // Construction dynamique de la clause WHERE
+        $whereClauses = [];
+        $bindings = [];
+        $i = 0;
 
-        // Récupérer tous les résultats
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        // En cas d'erreur de base de données
-        echo "<div class='alert alert-danger'>Erreur de base de données : " . $e->getMessage() . "</div>";
+        foreach ($searchWords as $word) {
+            $wordPattern = '%' . $word . '%';
+            $paramName = ':search' . $i++;
+
+            // Pour chaque mot, on vérifie s'il est contenu dans 'nom' OU 'couleur'
+            $whereClauses[] = "(make LIKE $paramName OR color LIKE $paramName)";
+            $bindings[$paramName] = $wordPattern;
+        }
+
+        // Utiliser 'OR' pour trouver les éléments qui contiennent au moins UN des mots
+        $whereString = implode(' OR ', $whereClauses);
+
+        // Reconstruire la requête SQL
+        $sql = "SELECT id, make, color 
+                FROM cars 
+                WHERE $whereString
+                ORDER BY make ASC";
+
+        try {
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute($bindings); // Utiliser le tableau de liaisons
+
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "<div class='alert alert-danger'>Erreur de base de données : " . $e->getMessage() . "</div>";
+        }
     }
 }
+// ... (suite du script et affichage des résultats)
 ?>
-
 
 <div class="container mt-5">
     <h2>Résultats de la recherche pour : "<?php echo htmlspecialchars($searchTerm); ?>"</h2>

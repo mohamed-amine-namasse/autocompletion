@@ -37,9 +37,12 @@ if ($elementId > 0) {
         <h1 class="mb-4 text-center"><?php echo htmlspecialchars($element['make']) . " " . htmlspecialchars($element['model']); ?></h1>
 
         <div class="row ">
-            <div class="col-md-5 border border-success d-flex justify-content-center align-items-center ">
+            <div class="col-md-5  d-flex justify-content-center align-items-center ">
 
-                <p> Image indisponible</p>
+                <img
+                    src="<?php echo htmlspecialchars($element['image']); ?>"
+                    class=" img-fluid rounded shadow-sm mb-4 w-100 "
+                    alt="<?php echo htmlspecialchars($element['make']); ?>" />
 
             </div>
             <?php $available = "";
