@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="./js/script.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
     <!-- Load an icon library -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,9 +37,19 @@
             </div>
             <form class="d-flex" role="search" action="recherche.php" method="GET">
                 <div class="input-group  ">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-                    <input type="search" name="search" class="form-control me-2 p-2 ">
+                    <span class="input-group-text  " id="basic-addon1"><i class="fa fa-search"></i></span>
+                    <input
+                        type="search"
+                        name="search"
+                        id="search-input"
+                        class="form-control me-2   "
+                        autocomplete="off">
+                    <div id="suggestions-dropdown"
+                        class="dropdown-menu show">
+
+                    </div>
                 </div>
+
                 <button class="btn btn-outline-success" type="submit">Rechercher</button>
             </form>
         </div>
