@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username   = "root";
 $password   = "";
-$DBname     = "autocompletion";
+$DBname     = "autocompletion2";
 
 try {
     $pdo = new PDO(
