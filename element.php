@@ -4,7 +4,7 @@ require_once 'config.php';
 
 
 // 1. Récupérer l'ID de l'élément
-// Assurez-vous que l'ID est bien un entier pour des raisons de sécurité
+// On s'assure que l'ID est bien un entier pour des raisons de sécurité
 $elementId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $element = null; // Initialiser l'élément
 
