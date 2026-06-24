@@ -10,9 +10,7 @@ $element = null; // Initialiser l'élément
 
 // 2. Vérifier si un ID valide est présent
 if ($elementId > 0) {
-    // Requête SQL pour sélectionner l'élément par son ID
-    // ATTENTION : Ajustez 'elements', 'nom', 'description', 'image_url', 'contenu_detaille'
-    // en fonction des colonnes réelles de votre table de base de données.
+
     $sql = "SELECT *
             FROM cars 
             WHERE id = :id";
